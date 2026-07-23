@@ -211,27 +211,24 @@ The application generates:
 ## 📷 Screenshots
 
 ### Home Page
-
-(Add Screenshot)
-
----
-
-### Analysis Dashboard
-
-(Add Screenshot)
+![alt text](<screenshots/Home Screen.png>)
 
 ---
 
-### Detection Timeline
+### Model Comparison
 
-(Add Screenshot)
+![alt text](<screenshots/Model Comparison.png>)
 
 ---
 
 ### Confidence Graph
 
-(Add Screenshot)
+![alt text](<screenshots/Confusion Matrix.png>)
+---
 
+### Output ScreenShots
+
+![alt text](<screenshots/EMA UR FALL Output.png>)
 ---
 
 ## 📚 Research Background
@@ -246,7 +243,17 @@ The application also provides benchmarking across multiple YOLO Pose models to e
 
 **Debatosh Roychowdhury**
 
+**Rajnaya Ghosh**
+
+**Sneha Shree**
+
+**Diganta Das**
+
 Final Year B.Tech (Computer Science & Engineering)
+
+**Dr. Chinmoy Kar**
+
+Associate Professor
 
 Techno International New Town
 
