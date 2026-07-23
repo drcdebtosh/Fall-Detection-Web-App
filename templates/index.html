@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus FallNet AI — Intelligent Fall Detection System</title>
+    <meta name="description" content="Nexus FallNet AI: Real-world fall detection powered by YOLO pose estimation. Upload videos or connect live cameras for real-time monitoring.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=9">
+</head>
+<body>
+    <!-- ══════════ GLOBAL BACKGROUNDS ══════════ -->
+    <canvas id="particle-canvas"></canvas>
+    <canvas id="sequence-canvas"></canvas>
+    <!-- Neon nebula blobs -->
+    <div class="nebula-blob nebula-blob-1" aria-hidden="true"></div>
+    <div class="nebula-blob nebula-blob-2" aria-hidden="true"></div>
+    <div class="nebula-blob nebula-blob-3" aria-hidden="true"></div>
+    <!-- Tech grid overlay element (visual only) -->
+    <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+    <!-- ══════════ NAVBAR ══════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <div class="brand-icon">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#g1)" stroke-width="2.5" fill="none"/><path d="M20 8L20 32M12 16L20 8L28 16M14 24L20 32L26 24" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00f2fe"/><stop offset="100%" stop-color="#ff006e"/></linearGradient></defs></svg>
+            </div>
+            <span class="brand-text">Nexus <span class="brand-highlight">FallNet</span> AI</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#problem" class="nav-link">The Problem</a>
+            <a href="#models" class="nav-link">Models</a>
+            <a href="#upload" class="nav-link">Upload</a>
+            <a href="#live" class="nav-link">Live Camera</a>
+            <a href="#pipeline" class="nav-link">Pipeline</a>
+        </div>
+        <div class="nav-status"><span class="status-dot"></span><span class="status-text">System Online</span></div>
+    </nav>
+
+    <!-- ══════════ HERO — 2-Column Immersive ══════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-grid">
+            <!-- Left: Copy & Stats -->
+            <div class="hero-left">
+                <div class="hero-content" style="max-width:none;padding:0;text-align:left">
+                    <div class="hero-badge" style="animation-delay:0.1s"><span class="badge-dot"></span>Real-World Safety AI System</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Protecting</span>
+                        <span class="title-line">Lives With</span>
+                        <span class="title-line gradient-text">AI Vision</span>
+                    </h1>
+                    <p class="hero-subtitle">Every 11 seconds, an older adult is treated in the ER for a fall. Nexus FallNet uses YOLO pose estimation and multi-signal state machines to detect falls in real-time — from uploaded videos or live camera feeds.</p>
+                    <div class="hero-actions">
+                        <a href="#upload" class="btn btn-primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Upload Video</a>
+                        <a href="#live" class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10S2 17.52 2 12z"/></svg>Live Camera</a>
+                        <a href="#models" class="btn btn-ghost">Compare Models <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat"><span class="stat-value">300+</span><span class="stat-label">Videos Tested</span></div>
+                        <div class="stat-divider"></div>
+                        <div class="stat"><span class="stat-value">97.1%</span><span class="stat-label">Best F1 Score</span></div>
+                        <div class="stat-divider"></div>
+                        <div class="stat"><span class="stat-value">35.7</span><span class="stat-label">FPS Real-Time</span></div>
+                        <div class="stat-divider"></div>
+                        <div class="stat"><span class="stat-value">3</span><span class="stat-label">YOLO Models</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Professional Metrics HUD -->
+            <div class="hero-right">
+                <div class="metrics-hud">
+                    <!-- Top: Accuracy ring + primary metric -->
+                    <div class="hud-top">
+                        <div class="hud-ring-wrap">
+                            <svg class="hud-ring" viewBox="0 0 160 160" fill="none">
+                                <circle cx="80" cy="80" r="68" stroke="rgba(255,255,255,0.04)" stroke-width="10"/>
+                                <circle cx="80" cy="80" r="68" stroke="url(#ringGrad)" stroke-width="10"
+                                    stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="25"
+                                    class="ring-arc" transform="rotate(-90 80 80)"/>
+                                <defs>
+                                    <linearGradient id="ringGrad" x1="0" y1="0" x2="160" y2="160">
+                                        <stop offset="0%" stop-color="#00f2fe"/>
+                                        <stop offset="100%" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="hud-ring-label">
+                                <div class="hud-ring-value" id="hud-f1">97.1%</div>
+                                <div class="hud-ring-sub">F1 Score</div>
+                            </div>
+                        </div>
+                        <div class="hud-primary-stats">
+                            <div class="hud-stat-row">
+                                <span class="hud-stat-label">Recall</span>
+                                <div class="hud-bar-wrap"><div class="hud-bar" style="--w:97.7%"></div></div>
+                                <span class="hud-stat-val">97.7%</span>
+                            </div>
+                            <div class="hud-stat-row">
+                                <span class="hud-stat-label">Precision</span>
+                                <div class="hud-bar-wrap"><div class="hud-bar" style="--w:96.6%;--c:#a855f7"></div></div>
+                                <span class="hud-stat-val">96.6%</span>
+                            </div>
+                            <div class="hud-stat-row">
+                                <span class="hud-stat-label">Speed</span>
+                                <div class="hud-bar-wrap"><div class="hud-bar" style="--w:89%;--c:#22c55e"></div></div>
+                                <span class="hud-stat-val">35.7 FPS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Middle: Model status grid -->
+                    <div class="hud-models">
+                        <div class="hud-model-row">
+                            <div class="hud-model-indicator active"></div>
+                            <span class="hud-model-name">YOLOv8n-Pose</span>
+                            <span class="hud-model-badge">v8 · 12.5M</span>
+                            <span class="hud-model-score">91.7%</span>
+                        </div>
+                        <div class="hud-model-row champion">
+                            <div class="hud-model-indicator champion-ind"></div>
+                            <span class="hud-model-name">YOLO11n-Pose</span>
+                            <span class="hud-model-badge champ">🏆 Champion</span>
+                            <span class="hud-model-score">97.1%</span>
+                        </div>
+                        <div class="hud-model-row">
+                            <div class="hud-model-indicator"></div>
+                            <span class="hud-model-name">YOLOv8s-Pose</span>
+                            <span class="hud-model-badge">v8s · 24.2M</span>
+                            <span class="hud-model-score">87.5%</span>
+                        </div>
+                    </div>
+                    <!-- Bottom: Live counters -->
+                    <div class="hud-counters">
+                        <div class="hud-counter">
+                            <div class="hud-counter-val" id="hud-c1">0</div>
+                            <div class="hud-counter-label">Videos Tested</div>
+                        </div>
+                        <div class="hud-counter">
+                            <div class="hud-counter-val" id="hud-c2">0</div>
+                            <div class="hud-counter-label">Falls Detected</div>
+                        </div>
+                        <div class="hud-counter">
+                            <div class="hud-counter-val" id="hud-c3">0</div>
+                            <div class="hud-counter-label">Keypoints / Frame</div>
+                        </div>
+                    </div>
+                    <!-- Status bar -->
+                    <div class="hud-status-bar">
+                        <span class="hud-status-dot"></span>
+                        <span class="hud-status-text">System Online · MPS Device · YOLO11n-Pose Active</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="scroll-indicator"><div class="scroll-arrow"></div></div>
+    </section>
+
+    <!-- ══════════ THE PROBLEM — 3D Storytelling ══════════ -->
+    <section class="section story-section" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">THE REAL-WORLD PROBLEM</span>
+                <h2 class="section-title">Falls Are a Silent Epidemic</h2>
+            </div>
+            <div class="story-grid">
+                <div class="story-card story-3d tech-corners" data-depth="1">
+                    <div class="tech-corner tl"></div><div class="tech-corner tr"></div>
+                    <div class="tech-corner bl"></div><div class="tech-corner br"></div>
+                    <div class="story-number">36M+</div>
+                    <p>Falls reported annually among older adults globally</p>
+                </div>
+                <div class="story-card story-3d tech-corners" data-depth="2">
+                    <div class="tech-corner tl"></div><div class="tech-corner tr"></div>
+                    <div class="tech-corner bl"></div><div class="tech-corner br"></div>
+                    <div class="story-number">684K</div>
+                    <p>Fatal falls per year — the 2nd leading cause of accidental death worldwide</p>
+                </div>
+                <div class="story-card story-3d tech-corners" data-depth="3">
+                    <div class="tech-corner tl"></div><div class="tech-corner tr"></div>
+                    <div class="tech-corner bl"></div><div class="tech-corner br"></div>
+                    <div class="story-number">$50B</div>
+                    <p>Annual medical costs for fall injuries in the US alone</p>
+                </div>
+                <div class="story-card story-3d tech-corners" data-depth="1">
+                    <div class="tech-corner tl"></div><div class="tech-corner tr"></div>
+                    <div class="tech-corner bl"></div><div class="tech-corner br"></div>
+                    <div class="story-number">80%</div>
+                    <p>Of falls in care homes go undetected if not witnessed by staff</p>
+                </div>
+            </div>
+            <div class="story-solution">
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Our Solution</h3>
+                    <p>Nexus FallNet connects to your existing cameras — webcams, IP cameras, CCTV feeds — and monitors 24/7 with AI pose estimation. When a fall is detected, it classifies severity and triggers alerts. No wearables needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ MODEL COMPARISON DASHBOARD ══════════ -->
+    <section class="section models-section" id="models">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MODEL BENCHMARKS</span>
+                <h2 class="section-title">Compare Our 3 YOLO Models</h2>
+                <p class="section-desc">Benchmarked on 300+ videos with cross-model consensus ground truth. Choose the model that fits your safety requirements.</p>
+            </div>
+
+            <!-- Metrics Comparison Bars -->
+            <div class="comparison-grid" id="comparison-grid">
+                <!-- JS fills this -->
+            </div>
+
+            <!-- Model Detail Cards -->
+            <div class="model-detail-cards" id="model-detail-cards">
+                <!-- JS fills this -->
+            </div>
+
+            <!-- Confusion Matrix Visual -->
+            <div class="confusion-section">
+                <h3 class="sub-title">Confusion Matrices <span class="sub-tag">195 Videos</span></h3>
+                <div class="confusion-grid" id="confusion-grid">
+                    <!-- JS fills this -->
+                </div>
+            </div>
+
+            <!-- Champion Banner -->
+            <div class="champion-banner">
+                <div class="champion-icon">🏆</div>
+                <div>
+                    <h3>Overall Champion: <span class="gradient-text">YOLO11n-Pose</span></h3>
+                    <p>Highest F1 Score (97.1%) • Fastest Speed (35.7 FPS) • Best Balanced Performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ VIDEO UPLOAD ══════════ -->
+    <section class="section upload-section" id="upload">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">VIDEO ANALYSIS</span>
+                <h2 class="section-title">Upload & Detect</h2>
+                <p class="section-desc">Drop a video file to run AI fall detection. Select your preferred YOLO model.</p>
+            </div>
+            <div class="upload-area" id="upload-area">
+                <div class="upload-zone" id="upload-zone">
+                    <div class="upload-icon"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="url(#uG)" stroke-width="2" stroke-dasharray="8 4" opacity="0.5"/><path d="M40 22V58M26 36L40 22L54 36" stroke="url(#uG)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="uG" x1="0" y1="0" x2="80" y2="80"><stop offset="0%" stop-color="#00f2fe"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs></svg></div>
+                    <h3 class="upload-title">Drag & drop your video here</h3>
+                    <p class="upload-hint">or click to browse • MP4, AVI, MOV, MKV, WebM • Up to 500MB</p>
+                    <input type="file" id="file-input" accept="video/*" hidden>
+                    <button class="btn btn-outline" id="browse-btn">Browse Files</button>
+                </div>
+                <!-- File Selected + Model Picker -->
+                <div class="upload-config" id="upload-config" style="display:none">
+                    <div class="selected-file" id="selected-file">
+                        <div class="file-icon">🎬</div>
+                        <div class="file-info"><span class="file-name" id="file-name"></span><span class="file-size" id="file-size"></span></div>
+                        <button class="file-remove" id="file-remove" title="Remove">✕</button>
+                    </div>
+                    <div class="model-picker">
+                        <label class="picker-label">Select YOLO Model for Detection:</label>
+                        <div class="model-picker-cards" id="model-picker-cards"></div>
+                    </div>
+                    <button class="btn btn-primary btn-full" id="analyze-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21"/></svg>Start Analysis</button>
+                </div>
+                <!-- Progress -->
+                <div class="progress-container" id="progress-container" style="display:none">
+                    <div class="progress-visual">
+                        <div class="progress-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="progress-ring-bg"/><circle cx="60" cy="60" r="54" class="progress-ring-fill" id="progress-ring-fill"/></svg><span class="progress-percent" id="progress-percent">0%</span></div>
+                        <div class="progress-info"><h3 class="progress-title">Analyzing Video</h3><p class="progress-detail" id="progress-detail">Initializing...</p><div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div></div>
+                    </div>
+                    <div class="processing-steps">
+                        <div class="step active" id="step-upload"><span class="step-dot"></span>Upload</div>
+                        <div class="step" id="step-detect"><span class="step-dot"></span>Pose Detection</div>
+                        <div class="step" id="step-analyze"><span class="step-dot"></span>Fall Analysis</div>
+                        <div class="step" id="step-complete"><span class="step-dot"></span>Complete</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ RESULTS ══════════ -->
+    <section class="section results-section" id="results" style="display:none">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">RESULTS</span><h2 class="section-title">Analysis Report</h2></div>
+            <div class="verdict-banner" id="verdict-banner">
+                <div class="verdict-icon" id="verdict-icon"></div>
+                <div class="verdict-text"><h3 class="verdict-label" id="verdict-label"></h3><p class="verdict-detail" id="verdict-detail"></p></div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">🎯</span><span class="metric-title">Confidence</span></div><canvas id="confidence-gauge" width="180" height="180"></canvas><span class="metric-value" id="metric-confidence">0%</span></div>
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">⚡</span><span class="metric-title">Severity</span></div><div class="severity-badge" id="severity-badge">N/A</div><div class="severity-bar-container"><div class="severity-bar" id="severity-bar"></div></div><span class="metric-sub" id="severity-score">Score: 0.0</span></div>
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">⚠️</span><span class="metric-title">Near-Falls</span></div><span class="metric-big-value" id="metric-nearfalls">0</span><span class="metric-sub">Stumbles / Balance Recoveries</span></div>
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">⏱️</span><span class="metric-title">Immobility</span></div><span class="metric-big-value" id="metric-immobility">0.0s</span><div class="immobility-status" id="immobility-status">N/A</div></div>
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">🚀</span><span class="metric-title">Speed</span></div><span class="metric-big-value" id="metric-fps">0</span><span class="metric-sub">Frames per second</span></div>
+                <div class="metric-card"><div class="metric-header"><span class="metric-icon">📊</span><span class="metric-title">Details</span></div>
+                    <div class="detail-list">
+                        <div class="detail-row"><span>Resolution</span><span id="d-res">—</span></div>
+                        <div class="detail-row"><span>Total Frames</span><span id="d-frames">—</span></div>
+                        <div class="detail-row"><span>Fall Frames</span><span id="d-fframes">—</span></div>
+                        <div class="detail-row"><span>Fall %</span><span id="d-fpct">—</span></div>
+                        <div class="detail-row"><span>Peak Velocity</span><span id="d-vel">—</span></div>
+                        <div class="detail-row"><span>Torso Angle</span><span id="d-ang">—</span></div>
+                        <div class="detail-row"><span>Persons</span><span id="d-pers">—</span></div>
+                        <div class="detail-row"><span>Model</span><span id="d-model">—</span></div>
+                        <div class="detail-row"><span>Device</span><span id="d-dev">—</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-section"><h3 class="sub-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Detection Timeline</h3><div class="timeline-chart"><canvas id="timeline-canvas"></canvas></div>
+                <div class="timeline-legend"><span class="legend-item"><span class="legend-color" style="background:#00f2fe"></span>Normal</span><span class="legend-item"><span class="legend-color" style="background:#fbbf24"></span>Descending</span><span class="legend-item"><span class="legend-color" style="background:#f97316"></span>Impact/Lying</span><span class="legend-item"><span class="legend-color" style="background:#ef4444"></span>Confirmed Fall</span></div>
+            </div>
+            <div class="video-player-section"><h3 class="sub-title">🎬 Annotated Output Video</h3><div class="video-wrapper"><video id="result-video" controls preload="auto" playsinline class="result-video" style="width:100%;max-height:520px;background:#000;border-radius:12px;"></video></div></div>
+            <div class="center-actions"><button class="btn btn-primary" id="new-analysis-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>Analyze Another Video</button></div>
+        </div>
+    </section>
+
+    <!-- ══════════ LIVE CAMERA SECTION ══════════ -->
+    <section class="section live-section" id="live">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">REAL-TIME MONITORING</span>
+                <h2 class="section-title">Connect Your Camera</h2>
+                <p class="section-desc">Connect your webcam or house camera for 24/7 real-time fall detection. Our AI processes each frame live.</p>
+            </div>
+
+            <!-- Setup Wizard -->
+            <div class="live-setup" id="live-setup">
+                <div class="setup-tabs">
+                    <button class="setup-tab active" data-tab="webcam">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                        Webcam
+                    </button>
+                    <button class="setup-tab" data-tab="ipcam">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        IP / House Camera
+                    </button>
+                </div>
+
+                <!-- Webcam Tab -->
+                <div class="setup-content active" id="tab-webcam">
+                    <div class="setup-steps">
+                        <div class="setup-step"><span class="step-num">1</span><div><h4>Select YOLO Model</h4><p>Choose based on your priority — accuracy or speed.</p></div></div>
+                        <div class="live-model-picker" id="live-model-picker"></div>
+                        <div class="setup-step"><span class="step-num">2</span><div><h4>Grant Camera Permission</h4><p>Allow browser access to your webcam. We process locally on-device.</p></div></div>
+                        <div class="setup-step"><span class="step-num">3</span><div><h4>Start Monitoring</h4><p>Click the button below to begin real-time fall detection.</p></div></div>
+                    </div>
+                    <button class="btn btn-primary btn-full" id="start-webcam-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                        Start Webcam Detection
+                    </button>
+                </div>
+
+                <!-- IP Camera Tab -->
+                <div class="setup-content" id="tab-ipcam">
+                    <div class="ipcam-guide">
+                        <h3>Connect Your House / IP Camera</h3>
+                        <div class="guide-steps">
+                            <div class="guide-step"><span class="guide-num">1</span><div><h4>Find Your Camera's RTSP URL</h4><p>Most IP cameras provide an RTSP stream URL. Check your camera's manual or admin panel. Common formats:</p><code>rtsp://username:password@192.168.1.100:554/stream1</code><code>rtsp://192.168.1.100/live/ch0</code></div></div>
+                            <div class="guide-step"><span class="guide-num">2</span><div><h4>Supported Camera Brands</h4><p class="brand-list">✅ Hikvision • ✅ Dahua • ✅ Reolink • ✅ Amcrest • ✅ TP-Link Tapo • ✅ Wyze • ✅ Ring (via RTSP) • ✅ Any ONVIF-compatible camera</p></div></div>
+                            <div class="guide-step"><span class="guide-num">3</span><div><h4>Run Nexus FallNet on Your Camera</h4><p>Use our command-line tool with your camera's RTSP URL:</p><code>python main.py rtsp://your_camera_url</code><p class="guide-note">The web dashboard will display real-time results from the connected camera feed.</p></div></div>
+                            <div class="guide-step"><span class="guide-num">4</span><div><h4>24/7 Monitoring Setup</h4><p>For production deployment, set up as a system service for continuous monitoring. Alerts can be configured via email, SMS, or webhook integrations.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Camera Feed -->
+            <div class="live-feed" id="live-feed" style="display:none">
+                <div class="live-header">
+                    <div class="live-indicator"><span class="live-dot"></span>LIVE</div>
+                    <div class="live-model-name" id="live-model-name">YOLO11n-Pose</div>
+                    <button class="btn btn-ghost btn-sm" id="stop-webcam-btn">Stop</button>
+                </div>
+                <div class="feed-layout">
+                    <div class="feed-video">
+                        <video id="webcam-video" autoplay playsinline muted style="display:none"></video>
+                        <canvas id="webcam-canvas-hidden" style="display:none"></canvas>
+                        <img id="annotated-feed" class="annotated-feed" alt="Annotated Feed">
+                        <div class="feed-overlay" id="feed-overlay">
+                            <span class="feed-state" id="feed-state">NORMAL</span>
+                        </div>
+                    </div>
+                    <div class="feed-sidebar">
+                        <div class="live-stat-card"><div class="live-stat-label">Status</div><div class="live-stat-value" id="live-status">NORMAL</div></div>
+                        <div class="live-stat-card"><div class="live-stat-label">Confidence</div><div class="live-stat-value" id="live-confidence">0%</div></div>
+                        <div class="live-stat-card"><div class="live-stat-label">Persons</div><div class="live-stat-value" id="live-persons">0</div></div>
+                        <div class="live-stat-card"><div class="live-stat-label">Falls Detected</div><div class="live-stat-value live-fall-count" id="live-falls">0</div></div>
+                        <div class="live-stat-card"><div class="live-stat-label">Near-Falls</div><div class="live-stat-value" id="live-nearfalls">0</div></div>
+                        <div class="live-stat-card alert-card" id="alert-card" style="display:none"><div class="alert-icon">🚨</div><div class="alert-text">FALL DETECTED!</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ PIPELINE — 3D Step-by-Step ══════════ -->
+    <section class="section pipeline-section" id="pipeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI PIPELINE</span>
+                <h2 class="section-title">How It Works: Step-by-Step</h2>
+                <p class="section-desc">See exactly how our multi-stage detection engine processes every frame to identify falls with high precision.</p>
+            </div>
+            
+            <div class="pipeline-vertical">
+                <div class="p-step-row right-side ps-3d">
+                    <div class="p-step-icon">01</div>
+                    <div class="p-step-content">
+                        <h3>Frame Extraction</h3>
+                        <p>Accepts uploaded videos, webcam feeds, or RTSP camera streams. Frames are read sequentially at native resolution and framerate, feeding the detection engine in real-time without buffering delays.</p>
+                        <div class="p-step-tags"><span>Real-time</span><span>Zero-lag</span></div>
+                    </div>
+                </div>
+
+                <div class="p-step-row left-side ps-3d">
+                    <div class="p-step-icon">02</div>
+                    <div class="p-step-content">
+                        <h3>YOLO Pose Estimation</h3>
+                        <p>Each frame runs through the advanced YOLO-Pose model, extracting a highly accurate 17-keypoint COCO human skeleton. It tracks multiple individuals simultaneously, even in crowded scenes.</p>
+                        <div class="p-step-tags"><span>17 Keypoints</span><span>Multi-person</span></div>
+                    </div>
+                </div>
+
+                <div class="p-step-row right-side ps-3d">
+                    <div class="p-step-icon">03</div>
+                    <div class="p-step-content">
+                        <h3>CA-EMA Smoothing</h3>
+                        <p>Confidence-Aware Exponential Moving Average (CA-EMA) dynamically filters the skeleton data. It reduces noisy jitter when detection confidence is low, but preserves sudden, sharp movements indicative of a fall.</p>
+                        <div class="p-step-tags"><span>Noise Reduction</span><span>Adaptive</span></div>
+                    </div>
+                </div>
+
+                <div class="p-step-row left-side ps-3d">
+                    <div class="p-step-icon">04</div>
+                    <div class="p-step-content">
+                        <h3>Multi-Signal Extraction</h3>
+                        <p>Our engine calculates physical metrics on the fly: descent velocity, vertical acceleration, torso angle to the ground, aspect ratio changes, and body height collapse. These physics-based signals are robust against different camera angles.</p>
+                        <div class="p-step-tags"><span>Velocity</span><span>Torso Angle</span></div>
+                    </div>
+                </div>
+
+                <div class="p-step-row right-side ps-3d">
+                    <div class="p-step-icon">05</div>
+                    <div class="p-step-content">
+                        <h3>5-State Machine Tracking</h3>
+                        <p>The state machine transitions from <strong>NORMAL</strong> to <strong>DESCENDING</strong>, then to <strong>IMPACT</strong>, and finally <strong>LYING</strong>. It also detects near-falls and tracks balance recoveries automatically, avoiding false alarms.</p>
+                        <div class="p-step-tags"><span>State Tracking</span><span>False Alarm Rejection</span></div>
+                    </div>
+                </div>
+
+                <div class="p-step-row left-side ps-3d">
+                    <div class="p-step-icon">06</div>
+                    <div class="p-step-content">
+                        <h3>Confirmation & Alert</h3>
+                        <p>Once a fall is confirmed, it classifies the severity (SOFT, MODERATE, SEVERE). It then monitors post-fall immobility; if the person remains on the ground for an extended time, it escalates to an emergency alert state.</p>
+                        <div class="p-step-tags"><span>Severity Scoring</span><span>Immobility Escalation</span></div>
+                    </div>
+                </div>
+                
+                <div class="p-timeline-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FEATURES ══════════ -->
+    <section class="section features-section" id="features">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">CAPABILITIES</span><h2 class="section-title">Key Features</h2></div>
+            <div class="features-grid">
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">🦴</div></div><h3>17-Keypoint Skeleton</h3><p>Full COCO pose tracking with sub-pixel accuracy on every detected person.</p></div>
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">🔄</div></div><h3>5-State Machine</h3><p>Tracks progression from normal activity through to confirmed fall with recovery detection.</p></div>
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">📐</div></div><h3>CA-EMA Smoothing</h3><p>Adaptive filtering based on detection confidence. Reduces jitter, preserves real movements.</p></div>
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">🎯</div></div><h3>Severity Classification</h3><p>SOFT / MODERATE / SEVERE based on impact velocity, deceleration, and head proximity to ground.</p></div>
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">⚡</div></div><h3>Near-Fall Detection</h3><p>Catches stumbles and balance recoveries — early warning signals of elevated fall risk.</p></div>
+                <div class="feature-card fc-3d"><div class="feature-icon-wrap"><div class="feature-icon">⏱️</div></div><h3>Immobility Monitoring</h3><p>MONITORING → DELAYED_RECOVERY → IMMOBILE_EMERGENCY escalation after confirmed falls.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ TECH STACK ══════════ -->
+    <section class="section tech-section" id="tech">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">TECHNOLOGY</span><h2 class="section-title">Built With</h2></div>
+            <div class="tech-grid">
+                <div class="tech-card"><div class="tech-logo">🔥</div><h4>PyTorch</h4><p>Deep learning</p></div>
+                <div class="tech-card"><div class="tech-logo">📦</div><h4>Ultralytics YOLO</h4><p>Pose estimation</p></div>
+                <div class="tech-card"><div class="tech-logo">👁️</div><h4>OpenCV</h4><p>Computer vision</p></div>
+                <div class="tech-card"><div class="tech-logo">🌐</div><h4>Flask</h4><p>Web framework</p></div>
+                <div class="tech-card"><div class="tech-logo">🎮</div><h4>Three.js</h4><p>3D visualization</p></div>
+                <div class="tech-card"><div class="tech-logo">🧮</div><h4>NumPy</h4><p>Numerical computing</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="footer">
+        <div class="container"><div class="footer-content">
+            <div class="footer-brand"><span class="brand-text">Nexus <span class="brand-highlight">FallNet</span> AI</span><p>Intelligent fall detection for safer lives.</p></div>
+            <div class="footer-info"><p>Real-World Safety System • YOLO Pose Estimation • State Machine Analysis</p><p class="footer-copy">© 2026 Nexus FallNet AI. Built for protecting the vulnerable.</p></div>
+        </div></div>
+    </footer>
+
+    <script src="/static/js/app.js?v=8"></script>
+</body>
+</html>

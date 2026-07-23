@@ -1,0 +1,21 @@
+# ─── Nexus FallNet AI — Python Dependencies ────────────────────────────────
+# Install with: pip install -r requirements.txt
+# Python 3.10+ recommended. Uses Apple MPS (Metal) for GPU acceleration.
+
+# Core ML / Vision
+opencv-python>=4.8.0
+numpy>=1.23.5
+ultralytics>=8.0.0         # YOLO11 pose estimation
+torch>=2.0.0               # PyTorch (MPS support on Apple Silicon)
+torchvision>=0.15.0
+
+# Web Framework
+Flask>=2.3.2
+Werkzeug>=3.0.0
+
+# Data / Visualisation (used in notebooks / benchmarking)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Dataset download (optional — only needed to re-download COCO/URFD datasets)
+kagglehub>=0.2.0

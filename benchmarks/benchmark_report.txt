@@ -1,0 +1,10 @@
+================================================================================
+                  EXECUTIVE BENCHMARK REPORT: FALL DETECTOR ANALYSIS
+================================================================================
+Generated on   : 2026-07-17 16:02:13
+Dataset Source : Multiple Video Inputs
+Total Videos   : 195
+Hardware Accel : mps
+Ground Truth   : Auto-consensus (cross-model majority vote)
+================================================================================
+

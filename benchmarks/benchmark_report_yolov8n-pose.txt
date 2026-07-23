@@ -1,0 +1,422 @@
+================================================================================
+            BENCHMARK REPORT: YOLOV8N-POSE PERFORMANCE
+================================================================================
+Generated on   : 2026-07-15 04:32:20
+Model Name     : YOLOV8N-POSE
+Dataset Source : Multiple Video Inputs
+Total Videos   : 195
+Hardware Accel : mps
+Ground Truth   : Auto-consensus (3-model majority vote)
+================================================================================
+
+1. PERFORMANCE METRICS (ENVIRONMENT BREAKDOWN)
+================================================================================
+Environment        | Recall   | Precision  | F1-Score  | Speed (FPS)
+--------------------------------------------------------------------------------
+GLOBAL             |  95.40% |    90.22% |   92.74% |      34.9 FPS
+Dataset2           |  87.50% |    87.50% |   87.50% |      33.1 FPS
+Dataset            |  96.20% |    90.48% |   93.25% |      36.6 FPS
+--------------------------------------------------------------------------------
+
+2. CONFUSION MATRIX
+----------------------------------------
+ -> GLOBAL             : [ TP: 83  | TN: 99  | FP: 9   | FN: 4   ]
+ -> Dataset2           : [ TP: 7   | TN: 54  | FP: 1   | FN: 1   ]
+ -> Dataset            : [ TP: 76  | TN: 45  | FP: 8   | FN: 3   ]
+
+3. DETAILED VIDEO-LEVEL VERDICTS
+----------------------------------------------------------------------------------------------------
+✅ video (1)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 34/592 | Max Conf: 18.1% | Reason: Max Conf: 18.1% (Horizontal (angle=1.0, AR=0.22, shrunk=True), Grounded (0.58))
+✅ video (10)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/828 | Max Conf: 20.9% | Reason: Max Conf: 20.9% (Grounded (0.94))
+✅ video (11)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 145/987 | Max Conf: 34.0% | Reason: Max Conf: 34.0% (Grounded (1.00))
+✅ video (12)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/498 | Max Conf: 20.0% | Reason: Max Conf: 20.0% (Grounded (0.96))
+✅ video (13)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 128/810 | Max Conf: 21.5% | Reason: Max Conf: 21.5% (Grounded (0.84))
+✅ video (14)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/504 | Max Conf: 22.2% | Reason: Max Conf: 22.2% (Grounded (1.00))
+✅ video (15)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/1220 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (16)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 791 (31.64s) | Severity: N/A
+   Fall Frames: 305/1246 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (17)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/202 | Max Conf: 23.4% | Reason: Max Conf: 23.4% (Grounded (1.00))
+✅ video (18)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 146/543 | Max Conf: 21.2% | Reason: Max Conf: 21.2% (Grounded (0.81))
+✅ video (19)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 200/638 | Max Conf: 19.1% | Reason: Max Conf: 19.1% (Grounded (0.68))
+✅ video (2)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 11/869 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (20)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 410 (16.40s) | Severity: SOFT
+   Fall Frames: 683/1313 | Max Conf: 44.8% | Reason: Horizontal (angle=37.2, AR=1.19, shrunk=True), Grounded (0.64)
+✅ video (21)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 520 (20.80s) | Severity: SOFT
+   Fall Frames: 40/595 | Max Conf: 24.8% | Reason: Grounded (0.93)
+✅ video (22)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 120 (4.80s) | Severity: SOFT
+   Fall Frames: 53/710 | Max Conf: 21.8% | Reason: Grounded (0.86)
+✅ video (23)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 58/297 | Max Conf: 24.2% | Reason: Max Conf: 24.2% (Grounded (1.00))
+✅ video (24)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 60/346 | Max Conf: 21.8% | Reason: Max Conf: 21.8% (Grounded (1.00))
+✅ video (25)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 1093 (43.72s) | Severity: SOFT
+   Fall Frames: 219/1606 | Max Conf: 18.9% | Reason: Grounded (0.67)
+✅ video (26)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 10/1282 | Max Conf: 18.8% | Reason: Max Conf: 18.8% (Grounded (0.88))
+✅ video (27)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 158/838 | Max Conf: 19.7% | Reason: Max Conf: 19.7% (Horizontal (angle=0.8, AR=0.36, shrunk=True), Grounded (0.64), Recovery, ⚡ NEAR-FALL #140)
+✅ video (28)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 10/258 | Max Conf: 51.7% | Reason: Max Conf: 51.7% (Horizontal (angle=49.3, AR=1.36, shrunk=True), Grounded (1.00))
+✅ video (29)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 8/375 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (3)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 58/505 | Max Conf: 18.2% | Reason: Max Conf: 18.2% (Grounded (1.00))
+✅ video (30)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 181/1441 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (31)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 19/674 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (32)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 11/986 | Max Conf: 43.8% | Reason: Max Conf: 43.8% (Horizontal (angle=32.6, AR=1.17, shrunk=True), Grounded (1.00))
+✅ video (33)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 120/1129 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (34)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 208/817 | Max Conf: 19.6% | Reason: Max Conf: 19.6% (Horizontal (angle=2.3, AR=0.19, shrunk=True), Grounded (0.62), Recovery, ⚡ NEAR-FALL #191)
+✅ video (35)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 6/297 | Max Conf: 19.8% | Reason: Max Conf: 19.8% (Grounded (1.00))
+✅ video (36)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 306/1051 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (37)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 58/505 | Max Conf: 18.2% | Reason: Max Conf: 18.2% (Grounded (1.00))
+✅ video (38)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 11/869 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (39)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 34/592 | Max Conf: 18.1% | Reason: Max Conf: 18.1% (Horizontal (angle=1.0, AR=0.22, shrunk=True), Grounded (0.58))
+✅ video (4)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 3/765 | Max Conf: 24.0% | Reason: Max Conf: 24.0% (Grounded (0.83))
+✅ video (40)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 23/1428 | Max Conf: 19.3% | Reason: Max Conf: 19.3% (Grounded (0.72))
+✅ video (41)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/191 | Max Conf: 20.2% | Reason: Max Conf: 20.2% (Grounded (0.55))
+✅ video (42)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 30/191 | Max Conf: 25.5% | Reason: Max Conf: 25.5% (Horizontal (angle=9.7, AR=0.53, shrunk=True), Grounded (0.54))
+✅ video (43)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 32/239 | Max Conf: 25.3% | Reason: Max Conf: 25.3% (Horizontal (angle=11.6, AR=0.45, shrunk=True), Grounded (0.54), Recovery, ⚡ NEAR-FALL #28)
+✅ video (44)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/239 | Max Conf: 25.8% | Reason: Max Conf: 25.8% (Grounded (0.65))
+✅ video (45)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/167 | Max Conf: 19.5% | Reason: Max Conf: 19.5% (Grounded (0.58))
+✅ video (46)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/167 | Max Conf: 22.4% | Reason: Max Conf: 22.4% (Grounded (0.57))
+✅ video (47)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 45/313 | Max Conf: 26.1% | Reason: Max Conf: 26.1% (Horizontal (angle=7.4, AR=0.67, shrunk=True), Grounded (0.56), Recovery, ⚡ NEAR-FALL #45)
+✅ video (48)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 37/215 | Max Conf: 25.1% | Reason: Max Conf: 25.1% (Horizontal (angle=7.9, AR=0.56, shrunk=True), Grounded (0.63), Recovery, ⚡ NEAR-FALL #37)
+❌ video (49)-converted.mp4  | Detected: NORMAL  | Consensus GT: FALLEN  | No fall detected
+   Fall Frames: 55/263 | Max Conf: 25.7% | Reason: Max Conf: 25.7% (Horizontal (angle=6.5, AR=0.66, shrunk=True), Grounded (0.61), Recovery, ⚡ NEAR-FALL #30)
+✅ video (5)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 118 (4.72s) | Severity: SOFT
+   Fall Frames: 88/328 | Max Conf: 19.2% | Reason: Grounded (1.00)
+✅ video (50)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 25/287 | Max Conf: 26.2% | Reason: Max Conf: 26.2% (Horizontal (angle=2.4, AR=0.86, shrunk=True), Grounded (0.65))
+✅ video (51)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 24/239 | Max Conf: 24.7% | Reason: Max Conf: 24.7% (Horizontal (angle=10.4, AR=0.44, shrunk=True), Grounded (0.54))
+✅ video (52)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 11/311 | Max Conf: 50.7% | Reason: Max Conf: 50.7% (Horizontal (angle=60.6, AR=0.75, shrunk=True), Grounded (0.63))
+✅ video (53)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 11/311 | Max Conf: 50.7% | Reason: Max Conf: 50.7% (Horizontal (angle=60.6, AR=0.75, shrunk=True), Grounded (0.63))
+✅ video (54)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 48/263 | Max Conf: 30.6% | Reason: Max Conf: 30.6% (Horizontal (angle=19.4, AR=0.62, shrunk=True), Grounded (0.54), Recovery, ⚡ NEAR-FALL #29)
+❌ video (55)-converted.mp4  | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 194 (8.08s) | Severity: SOFT
+   Fall Frames: 51/215 | Max Conf: 55.0% | Reason: Horizontal (angle=62.3, AR=1.62, shrunk=True), Grounded (0.64)
+✅ video (56)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 12/215 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (57)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 35/215 | Max Conf: 25.6% | Reason: Max Conf: 25.6% (Horizontal (angle=10.4, AR=0.52, shrunk=True), Grounded (0.53))
+✅ video (58)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 42/215 | Max Conf: 25.3% | Reason: Max Conf: 25.3% (Horizontal (angle=5.4, AR=0.67, shrunk=True), Grounded (0.63), Recovery, ⚡ NEAR-FALL #30)
+✅ video (59)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/359 | Max Conf: 23.3% | Reason: Max Conf: 23.3% (Grounded (0.89))
+✅ video (6)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 124/531 | Max Conf: 21.0% | Reason: Max Conf: 21.0% (Grounded (0.73))
+✅ video (60)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 13/239 | Max Conf: 25.7% | Reason: Max Conf: 25.7% (Horizontal (angle=5.8, AR=0.62, shrunk=True), Grounded (0.55), Recovery, ⚡ NEAR-FALL #9)
+✅ video (61)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 31/335 | Max Conf: 23.8% | Reason: Max Conf: 23.8% (Horizontal (angle=9.0, AR=0.42, shrunk=True), Grounded (0.54))
+✅ video (62)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/215 | Max Conf: 20.1% | Reason: Max Conf: 20.1% (Grounded (0.65))
+✅ video (63)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 50/311 | Max Conf: 20.8% | Reason: Max Conf: 20.8% (Horizontal (angle=2.3, AR=0.40, shrunk=True), Grounded (0.53), Recovery, ⚡ NEAR-FALL #47)
+✅ video (7)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 46/427 | Max Conf: 25.8% | Reason: Max Conf: 25.8% (Horizontal (angle=7.9, AR=0.61, shrunk=True), Grounded (1.00))
+✅ video (8)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 14/220 | Max Conf: 20.9% | Reason: Max Conf: 20.9% (Grounded (1.00))
+✅ video (9)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 1002 (40.08s) | Severity: SOFT
+   Fall Frames: 290/1145 | Max Conf: 33.5% | Reason: Grounded (0.77)
+✅ video (1)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 97 (3.88s) | Severity: SOFT
+   Fall Frames: 98/156 | Max Conf: 55.0% | Reason: Horizontal (angle=78.3, AR=1.63, shrunk=False), Grounded (0.84)
+✅ video (10)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 262 (10.48s) | Severity: SOFT
+   Fall Frames: 125/361 | Max Conf: 54.3% | Reason: Horizontal (angle=58.3, AR=1.89, shrunk=False), Grounded (0.88)
+✅ video (100)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 162 (6.75s) | Severity: SOFT
+   Fall Frames: 52/191 | Max Conf: 55.0% | Reason: Horizontal (angle=89.1, AR=2.27, shrunk=False), Grounded (0.65)
+✅ video (101)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 1/237 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (102)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 21/270 | Max Conf: 48.7% | Reason: Max Conf: 48.7% (Grounded (0.93))
+✅ video (103)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 38/263 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (104)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 164 (6.83s) | Severity: SOFT
+   Fall Frames: 54/239 | Max Conf: 55.0% | Reason: Horizontal (angle=88.9, AR=1.83, shrunk=False), Grounded (0.97)
+❌ video (105)-converted.mp4 | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 172 (7.17s) | Severity: SOFT
+   Fall Frames: 73/191 | Max Conf: 50.7% | Reason: Horizontal (angle=56.4, AR=1.01, shrunk=True), Grounded (0.89)
+✅ video (106)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 149 (6.21s) | Severity: SOFT
+   Fall Frames: 45/239 | Max Conf: 28.6% | Reason: Grounded (0.79)
+✅ video (107)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 16/215 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (108)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 177 (7.37s) | Severity: SOFT
+   Fall Frames: 62/191 | Max Conf: 55.0% | Reason: Horizontal (angle=77.8, AR=2.63, shrunk=False), Grounded (0.91)
+✅ video (109)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 191 (7.96s) | Severity: SOFT
+   Fall Frames: 48/215 | Max Conf: 55.2% | Reason: Horizontal (angle=79.5, AR=1.26, shrunk=False), Grounded (0.73)
+✅ video (11)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 398 (15.92s) | Severity: SOFT
+   Fall Frames: 105/482 | Max Conf: 55.0% | Reason: Horizontal (angle=77.5, AR=2.80, shrunk=True), Grounded (0.89)
+❌ video (110)-converted.mp4 | Detected: NORMAL  | Consensus GT: FALLEN  | No fall detected
+   Fall Frames: 19/284 | Max Conf: 19.4% | Reason: Max Conf: 19.4% (Grounded (1.00))
+✅ video (111)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 1/287 | Max Conf: 0.0% | Reason: No fall detected
+❌ video (112)-converted.mp4 | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 183 (7.62s) | Severity: SOFT
+   Fall Frames: 88/215 | Max Conf: 55.0% | Reason: Horizontal (angle=72.9, AR=1.85, shrunk=True), Grounded (0.97)
+✅ video (113)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 16/239 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (114)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 100 (4.17s) | Severity: N/A
+   Fall Frames: 28/191 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (115)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 169 (7.04s) | Severity: SOFT
+   Fall Frames: 74/215 | Max Conf: 55.0% | Reason: Horizontal (angle=73.0, AR=2.76, shrunk=False), Grounded (0.99)
+✅ video (116)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 17/791 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (117)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 1/414 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (118)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 223 (8.92s) | Severity: SOFT
+   Fall Frames: 111/297 | Max Conf: 52.7% | Reason: Horizontal (angle=54.4, AR=1.79, shrunk=True), Grounded (0.92)
+✅ video (119)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 278 (11.12s) | Severity: SOFT
+   Fall Frames: 170/427 | Max Conf: 55.0% | Reason: Horizontal (angle=86.6, AR=2.33, shrunk=False), Grounded (1.00)
+✅ video (12)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/181 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (120)-converted.mp4 | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/466 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (121)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 349 (13.96s) | Severity: MODERATE
+   Fall Frames: 88/414 | Max Conf: 55.0% | Reason: Horizontal (angle=87.9, AR=1.88, shrunk=True), Grounded (0.98)
+✅ video (122)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 159 (6.36s) | Severity: SOFT
+   Fall Frames: 90/216 | Max Conf: 55.0% | Reason: Horizontal (angle=85.3, AR=2.03, shrunk=False), Grounded (1.00)
+✅ video (123)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 200 (8.00s) | Severity: MODERATE
+   Fall Frames: 75/258 | Max Conf: 55.2% | Reason: Horizontal (angle=82.0, AR=1.46, shrunk=True), Grounded (0.95)
+✅ video (124)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 332 (13.28s) | Severity: SOFT
+   Fall Frames: 110/418 | Max Conf: 55.0% | Reason: Horizontal (angle=60.9, AR=1.32, shrunk=True), Grounded (1.00)
+✅ video (125)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 219 (8.76s) | Severity: MODERATE
+   Fall Frames: 123/319 | Max Conf: 53.9% | Reason: Horizontal (angle=59.3, AR=1.18, shrunk=True), Grounded (1.00)
+✅ video (126)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 181 (7.24s) | Severity: SOFT
+   Fall Frames: 81/237 | Max Conf: 55.0% | Reason: Horizontal (angle=79.6, AR=1.91, shrunk=False), Grounded (1.00)
+✅ video (127)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 189 (7.56s) | Severity: SOFT
+   Fall Frames: 103/268 | Max Conf: 54.2% | Reason: Horizontal (angle=76.7, AR=1.18, shrunk=True), Grounded (1.00)
+❌ video (128)-converted.mp4 | Detected: NORMAL  | Consensus GT: FALLEN  | No fall detected
+   Fall Frames: 2/192 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (129)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 103 (4.12s) | Severity: SOFT
+   Fall Frames: 91/172 | Max Conf: 55.0% | Reason: Horizontal (angle=72.8, AR=1.70, shrunk=True), Grounded (0.95)
+✅ video (13)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 2/243 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (130)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 137 (5.48s) | Severity: SOFT
+   Fall Frames: 101/216 | Max Conf: 55.0% | Reason: Horizontal (angle=73.3, AR=2.64, shrunk=True), Grounded (1.00)
+❌ video (131)-converted.mp4 | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 274 (10.96s) | Severity: MODERATE
+   Fall Frames: 64/317 | Max Conf: 36.4% | Reason: Horizontal (angle=25.6, AR=0.90, shrunk=True), Grounded (1.00)
+✅ video (132)-converted.mp4 | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 94 (3.76s) | Severity: SOFT
+   Fall Frames: 130/205 | Max Conf: 43.4% | Reason: Horizontal (angle=32.2, AR=1.44, shrunk=True), Grounded (1.00)
+✅ video (14)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 59/175 | Max Conf: 28.9% | Reason: Max Conf: 28.9% (Horizontal (angle=12.9, AR=0.71, shrunk=True), Grounded (0.99))
+✅ video (15)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 86 (3.44s) | Severity: SOFT
+   Fall Frames: 78/139 | Max Conf: 36.2% | Reason: Horizontal (angle=25.1, AR=0.90, shrunk=True), Grounded (0.98)
+✅ video (16)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 70 (2.80s) | Severity: SOFT
+   Fall Frames: 127/176 | Max Conf: 55.0% | Reason: Horizontal (angle=72.3, AR=2.22, shrunk=True), Grounded (0.86)
+✅ video (17)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 51 (2.04s) | Severity: MODERATE
+   Fall Frames: 127/157 | Max Conf: 55.1% | Reason: Horizontal (angle=87.6, AR=1.95, shrunk=True), Grounded (0.86)
+✅ video (18)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 183 (7.32s) | Severity: SOFT
+   Fall Frames: 106/268 | Max Conf: 55.0% | Reason: Horizontal (angle=89.0, AR=2.22, shrunk=True), Grounded (0.84)
+✅ video (19)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 125 (5.00s) | Severity: MODERATE
+   Fall Frames: 108/212 | Max Conf: 55.0% | Reason: Horizontal (angle=85.8, AR=1.90, shrunk=True), Grounded (0.90)
+✅ video (2)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 226 (9.04s) | Severity: SOFT
+   Fall Frames: 103/305 | Max Conf: 55.0% | Reason: Horizontal (angle=82.4, AR=1.30, shrunk=True), Grounded (0.85)
+✅ video (20)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 391 (15.64s) | Severity: SOFT
+   Fall Frames: 82/443 | Max Conf: 55.0% | Reason: Horizontal (angle=84.4, AR=2.64, shrunk=False), Grounded (0.82)
+✅ video (21)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 9/181 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (22)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 152 (6.08s) | Severity: MODERATE
+   Fall Frames: 97/228 | Max Conf: 55.0% | Reason: Horizontal (angle=63.6, AR=2.01, shrunk=True), Grounded (0.88)
+✅ video (23)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 245 (9.80s) | Severity: MODERATE
+   Fall Frames: 29/310 | Max Conf: 55.4% | Reason: Horizontal (angle=81.2, AR=2.75, shrunk=True), Grounded (0.82)
+✅ video (24)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 6/266 | Max Conf: 57.2% | Reason: Max Conf: 57.2% (Horizontal (angle=72.1, AR=1.20, shrunk=False), Grounded (0.89))
+✅ video (25)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 199 (7.96s) | Severity: MODERATE
+   Fall Frames: 96/261 | Max Conf: 49.4% | Reason: Horizontal (angle=47.3, AR=1.22, shrunk=True), Grounded (0.98)
+✅ video (26)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 274 (10.96s) | Severity: SOFT
+   Fall Frames: 31/277 | Max Conf: 52.1% | Reason: Horizontal (angle=53.0, AR=1.32, shrunk=False), Grounded (0.89)
+✅ video (27)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 170 (6.80s) | Severity: SOFT
+   Fall Frames: 102/252 | Max Conf: 55.0% | Reason: Horizontal (angle=69.2, AR=2.37, shrunk=True), Grounded (0.78)
+✅ video (28)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 7/174 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (29)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 85/327 | Max Conf: 43.3% | Reason: Max Conf: 43.3% (Horizontal (angle=27.3, AR=0.86, shrunk=True), Grounded (0.84))
+✅ video (3)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 260 (10.40s) | Severity: SOFT
+   Fall Frames: 67/303 | Max Conf: 55.0% | Reason: Horizontal (angle=86.2, AR=1.40, shrunk=True), Grounded (0.80)
+❌ video (30)-converted.mp4  | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 109 (4.36s) | Severity: SOFT
+   Fall Frames: 57/144 | Max Conf: 38.4% | Reason: Horizontal (angle=41.0, AR=0.53, shrunk=True), Grounded (0.95)
+✅ video (31)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 17/264 | Max Conf: 28.9% | Reason: Max Conf: 28.9% (Grounded (0.95))
+✅ video (32)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 232 (9.28s) | Severity: SOFT
+   Fall Frames: 93/304 | Max Conf: 55.0% | Reason: Horizontal (angle=88.1, AR=3.00, shrunk=True), Grounded (0.78)
+✅ video (33)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 121 (4.84s) | Severity: SOFT
+   Fall Frames: 128/226 | Max Conf: 55.0% | Reason: Horizontal (angle=60.6, AR=1.85, shrunk=True), Grounded (0.84)
+✅ video (34)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 357 (14.28s) | Severity: SOFT
+   Fall Frames: 78/414 | Max Conf: 55.0% | Reason: Horizontal (angle=83.0, AR=2.27, shrunk=True), Grounded (0.83)
+✅ video (35)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 98 (3.92s) | Severity: SOFT
+   Fall Frames: 154/230 | Max Conf: 52.3% | Reason: Horizontal (angle=54.0, AR=1.23, shrunk=True), Grounded (0.92)
+✅ video (36)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 1116 (44.64s) | Severity: SOFT
+   Fall Frames: 191/1202 | Max Conf: 55.0% | Reason: Horizontal (angle=72.8, AR=1.80, shrunk=True), Grounded (0.93)
+✅ video (37)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 3/205 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (38)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 269 (10.76s) | Severity: SOFT
+   Fall Frames: 104/351 | Max Conf: 49.2% | Reason: Horizontal (angle=46.1, AR=1.53, shrunk=True), Grounded (0.92)
+✅ video (39)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 76 (3.04s) | Severity: SOFT
+   Fall Frames: 101/156 | Max Conf: 55.0% | Reason: Horizontal (angle=73.6, AR=2.50, shrunk=True), Grounded (0.96)
+✅ video (4)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 5/206 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (40)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 285 (11.40s) | Severity: SOFT
+   Fall Frames: 90/349 | Max Conf: 55.0% | Reason: Horizontal (angle=88.1, AR=2.74, shrunk=True), Grounded (0.85)
+✅ video (41)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 298 (11.92s) | Severity: MODERATE
+   Fall Frames: 108/381 | Max Conf: 55.0% | Reason: Horizontal (angle=68.3, AR=1.40, shrunk=True), Grounded (0.87)
+✅ video (42)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 147 (5.88s) | Severity: MODERATE
+   Fall Frames: 32/158 | Max Conf: 55.0% | Reason: Horizontal (angle=62.8, AR=2.17, shrunk=True), Grounded (0.84)
+✅ video (43)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 657 (26.28s) | Severity: MODERATE
+   Fall Frames: 81/717 | Max Conf: 47.6% | Reason: Horizontal (angle=42.2, AR=1.73, shrunk=True), Grounded (0.96)
+❌ video (44)-converted.mp4  | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 118 (4.72s) | Severity: SOFT
+   Fall Frames: 37/132 | Max Conf: 44.6% | Reason: Horizontal (angle=46.4, AR=0.85, shrunk=True), Grounded (1.00)
+✅ video (45)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 145 (5.80s) | Severity: SOFT
+   Fall Frames: 102/214 | Max Conf: 55.0% | Reason: Horizontal (angle=72.3, AR=3.16, shrunk=False), Grounded (0.84)
+✅ video (46)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 10/291 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (47)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 22/728 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (48)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 684 (27.36s) | Severity: MODERATE
+   Fall Frames: 196/778 | Max Conf: 55.0% | Reason: Horizontal (angle=66.0, AR=1.83, shrunk=True), Grounded (0.98)
+✅ video (49)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 453 (18.12s) | Severity: SOFT
+   Fall Frames: 81/491 | Max Conf: 55.0% | Reason: Horizontal (angle=77.6, AR=1.76, shrunk=True), Grounded (0.94)
+✅ video (5)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 28/180 | Max Conf: 59.1% | Reason: Max Conf: 59.1% (Horizontal (angle=64.3, AR=1.85, shrunk=False), Grounded (0.95))
+✅ video (50)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 1846 (73.84s) | Severity: SOFT
+   Fall Frames: 634/1953 | Max Conf: 55.0% | Reason: Horizontal (angle=63.4, AR=1.39, shrunk=True), Grounded (1.00)
+✅ video (51)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 110 (4.40s) | Severity: SOFT
+   Fall Frames: 117/202 | Max Conf: 55.0% | Reason: Horizontal (angle=74.7, AR=1.76, shrunk=True), Grounded (0.83)
+✅ video (52)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 114 (4.56s) | Severity: SOFT
+   Fall Frames: 121/214 | Max Conf: 55.0% | Reason: Horizontal (angle=84.8, AR=2.17, shrunk=True), Grounded (0.81)
+✅ video (53)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 287 (11.48s) | Severity: SOFT
+   Fall Frames: 180/382 | Max Conf: 55.0% | Reason: Horizontal (angle=84.9, AR=2.36, shrunk=True), Grounded (0.79)
+✅ video (54)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 9/250 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (55)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 252 (10.08s) | Severity: SOFT
+   Fall Frames: 91/322 | Max Conf: 55.0% | Reason: Horizontal (angle=60.0, AR=1.74, shrunk=True), Grounded (0.92)
+✅ video (56)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 330 (13.20s) | Severity: SOFT
+   Fall Frames: 216/430 | Max Conf: 55.0% | Reason: Horizontal (angle=82.5, AR=2.41, shrunk=True), Grounded (0.90)
+✅ video (57)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 324 (12.96s) | Severity: N/A
+   Fall Frames: 39/562 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (58)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 206 (8.24s) | Severity: SOFT
+   Fall Frames: 126/310 | Max Conf: 55.0% | Reason: Horizontal (angle=68.5, AR=1.63, shrunk=True), Grounded (0.89)
+✅ video (59)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 168 (6.72s) | Severity: SOFT
+   Fall Frames: 108/250 | Max Conf: 29.1% | Reason: Horizontal (angle=2.3, AR=1.09, shrunk=True), Grounded (0.95)
+✅ video (6)-converted.mp4   | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 19/238 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (60)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 159 (6.36s) | Severity: SOFT
+   Fall Frames: 140/274 | Max Conf: 47.4% | Reason: Horizontal (angle=51.0, AR=0.93, shrunk=True), Grounded (0.86)
+✅ video (61)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 31/335 | Max Conf: 23.8% | Reason: Max Conf: 23.8% (Horizontal (angle=9.0, AR=0.42, shrunk=True), Grounded (0.54))
+✅ video (62)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 194 (7.76s) | Severity: SOFT
+   Fall Frames: 152/281 | Max Conf: 55.0% | Reason: Horizontal (angle=70.3, AR=2.76, shrunk=True), Grounded (0.86)
+✅ video (63)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 50/311 | Max Conf: 20.8% | Reason: Max Conf: 20.8% (Horizontal (angle=2.3, AR=0.40, shrunk=True), Grounded (0.53), Recovery, ⚡ NEAR-FALL #47)
+✅ video (64)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 163 (6.52s) | Severity: SOFT
+   Fall Frames: 69/211 | Max Conf: 55.0% | Reason: Horizontal (angle=84.1, AR=2.43, shrunk=True), Grounded (0.88)
+✅ video (65)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 833 (33.32s) | Severity: SOFT
+   Fall Frames: 339/934 | Max Conf: 55.0% | Reason: Horizontal (angle=69.6, AR=2.22, shrunk=False), Grounded (0.95)
+✅ video (66)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 516 (20.64s) | Severity: SOFT
+   Fall Frames: 146/622 | Max Conf: 55.0% | Reason: Horizontal (angle=81.6, AR=1.71, shrunk=False), Grounded (0.94)
+✅ video (67)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 18/505 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (68)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 624 (24.96s) | Severity: SOFT
+   Fall Frames: 144/721 | Max Conf: 55.0% | Reason: Horizontal (angle=72.8, AR=2.33, shrunk=True), Grounded (0.94)
+✅ video (69)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 15/401 | Max Conf: 29.9% | Reason: Max Conf: 29.9% (Grounded (0.92))
+✅ video (7)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 153 (6.12s) | Severity: SOFT
+   Fall Frames: 54/173 | Max Conf: 53.6% | Reason: Horizontal (angle=56.4, AR=1.73, shrunk=False), Grounded (0.93)
+❌ video (70)-converted.mp4  | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 307 (12.28s) | Severity: SOFT
+   Fall Frames: 91/362 | Max Conf: 35.7% | Reason: Horizontal (angle=24.4, AR=0.88, shrunk=True), Grounded (0.97)
+✅ video (71)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 246 (9.84s) | Severity: SOFT
+   Fall Frames: 120/427 | Max Conf: 55.0% | Reason: Horizontal (angle=78.2, AR=1.97, shrunk=False), Grounded (0.90)
+✅ video (72)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 64/492 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (73)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 104/674 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (74)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 270 (10.80s) | Severity: SOFT
+   Fall Frames: 51/284 | Max Conf: 34.6% | Reason: Horizontal (angle=11.1, AR=1.56, shrunk=False), Grounded (0.95)
+✅ video (75)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 218 (8.72s) | Severity: SOFT
+   Fall Frames: 87/284 | Max Conf: 55.0% | Reason: Horizontal (angle=80.4, AR=2.50, shrunk=False), Grounded (0.90)
+❌ video (76)-converted.mp4  | Detected: NORMAL  | Consensus GT: FALLEN  | No fall detected
+   Fall Frames: 6/336 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (77)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 293 (11.72s) | Severity: SOFT
+   Fall Frames: 116/388 | Max Conf: 55.0% | Reason: Horizontal (angle=84.4, AR=2.33, shrunk=True), Grounded (0.88)
+✅ video (78)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 362 (14.48s) | Severity: SOFT
+   Fall Frames: 75/414 | Max Conf: 55.0% | Reason: Horizontal (angle=76.4, AR=1.91, shrunk=False), Grounded (0.88)
+✅ video (79)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 28/311 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (8)-converted.mp4   | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 103 (4.12s) | Severity: N/A
+   Fall Frames: 69/257 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (80)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/239 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (81)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/215 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (82)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/191 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (83)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/191 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (84)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 152 (6.33s) | Severity: SOFT
+   Fall Frames: 111/239 | Max Conf: 55.0% | Reason: Horizontal (angle=86.2, AR=2.62, shrunk=True), Grounded (0.82)
+✅ video (85)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 2/191 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (86)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 3/311 | Max Conf: 20.0% | Reason: Max Conf: 20.0% (Grounded (1.00))
+✅ video (87)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 173 (7.21s) | Severity: SOFT
+   Fall Frames: 112/263 | Max Conf: 55.0% | Reason: Horizontal (angle=83.6, AR=2.18, shrunk=True), Grounded (0.76)
+✅ video (88)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 22/215 | Max Conf: 53.9% | Reason: Max Conf: 53.9% (Grounded (0.99))
+✅ video (89)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 17/215 | Max Conf: 55.0% | Reason: Max Conf: 55.0% (Horizontal (angle=78.9, AR=2.06, shrunk=True), Grounded (0.63))
+❌ video (9)-converted.mp4   | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 142 (5.68s) | Severity: MODERATE
+   Fall Frames: 89/205 | Max Conf: 50.5% | Reason: Horizontal (angle=49.2, AR=1.33, shrunk=True), Grounded (0.90)
+✅ video (90)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 20/239 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (91)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 20/239 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (92)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 8/335 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (93)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 0/311 | Max Conf: 20.1% | Reason: Max Conf: 20.1% (Grounded (1.00))
+✅ video (94)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 187 (7.79s) | Severity: MODERATE
+   Fall Frames: 85/239 | Max Conf: 55.0% | Reason: Horizontal (angle=78.7, AR=2.95, shrunk=True), Grounded (0.87)
+✅ video (95)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 1/191 | Max Conf: 0.0% | Reason: No fall detected
+✅ video (96)-converted.mp4  | Detected: NORMAL  | Consensus GT: NORMAL  | No fall detected
+   Fall Frames: 1/239 | Max Conf: 0.0% | Reason: No fall detected
+❌ video (97)-converted.mp4  | Detected: FALLEN  | Consensus GT: NORMAL  | FALL DETECTED at frame 183 (7.62s) | Severity: SOFT
+   Fall Frames: 88/215 | Max Conf: 55.0% | Reason: Horizontal (angle=72.9, AR=1.85, shrunk=True), Grounded (0.97)
+✅ video (98)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 198 (8.25s) | Severity: MODERATE
+   Fall Frames: 40/212 | Max Conf: 55.0% | Reason: Horizontal (angle=62.3, AR=2.74, shrunk=True), Grounded (0.99)
+✅ video (99)-converted.mp4  | Detected: FALLEN  | Consensus GT: FALLEN  | FALL DETECTED at frame 191 (7.96s) | Severity: SOFT
+   Fall Frames: 89/239 | Max Conf: 55.0% | Reason: Horizontal (angle=84.5, AR=2.95, shrunk=True), Grounded (0.97)
+
+================================================================================
+                        END OF MODEL EVALUATION LOGS
+================================================================================
