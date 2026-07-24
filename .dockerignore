@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Virtual Environment
+venv/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Generated Videos
+uploads/*
+outputs/*
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large datasets
+Dataset/
+Dataset2/
+UR DATASET/
+
+# Documentation
+benchmarks/
+animation1/
+screenshots/
+
+# Keep model files!
+# Don't ignore *.pt

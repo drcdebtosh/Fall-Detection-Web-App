@@ -1,0 +1,13 @@
+services:
+  fall-detection:
+    build: .
+    container_name: fall-detection-web-app
+
+    ports:
+      - "5050:5050"
+
+    volumes:
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+
+    restart: unless-stopped
