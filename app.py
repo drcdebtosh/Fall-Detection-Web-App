@@ -85,7 +85,7 @@ BENCHMARK_DATA = {
         {
             "id": "yolo11n-pose",
             "name": "YOLO11n-Pose",
-            "filename": "yolo11n-pose.pt",
+            "filename": "models/yolo11n-pose.pt",
             "generation": "v11",
             "description": "Next-gen YOLO11 Nano Pose — highest F1 score, champion across all categories.",
             "badge": "🏆 Champion",
@@ -118,7 +118,7 @@ BENCHMARK_DATA = {
 
 def get_model(model_name=None):
     if model_name is None:
-        model_name = "yolo11n-pose.pt"
+        model_name = "models/yolo11n-pose.pt"
     with _model_lock:
         if model_name not in _model_cache:
             model_path = os.path.join(os.path.dirname(__file__), model_name)
@@ -296,7 +296,7 @@ def analyze_video(video_path, job_id, model_name=None):
         "peak_velocity": float(round(peak_vel, 4)),
         "peak_torso_angle": float(round(peak_angle, 1)),
         "persons_tracked": int(len(active_tracks)),
-        "model_used": str(model_name or "yolo11n-pose.pt"),
+        "model_used": str(model_name or "models/yolo11n-pose.pt"),
         "device": str(DEVICE),
         "annotated_video": str(output_filename),
         "timeline": timeline,
@@ -400,7 +400,7 @@ def api_analyze():
     upload_path = os.path.join(app.config["UPLOAD_FOLDER"], f"{job_id}{ext}")
     file.save(upload_path)
 
-    model_name = request.form.get("model", "yolo11n-pose")
+    model_name = request.form.get("model", "models/yolo11n-pose")
     if not model_name.endswith(".pt"):
         model_name += ".pt"
 
@@ -423,7 +423,7 @@ def api_detect_frame():
 
     frame_data = request.files["frame"].read()
     session_id = request.form.get("session_id", "default")
-    model_name = request.form.get("model", "yolo11n-pose.pt")
+    model_name = request.form.get("model", "models/yolo11n-pose.pt")
     if not model_name.endswith(".pt"):
         model_name += ".pt"
 
@@ -506,11 +506,15 @@ def list_models():
 def api_benchmark():
     return jsonify(BENCHMARK_DATA)
 
+@app.route("/health")
+def health():
+    return {"status": "ok"}
+
 
 # ═══════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
     try:
-        get_model("yolo11n-pose.pt")
+        get_model("models/yolo11n-pose.pt")
     except FileNotFoundError:
         print("[WARNING] Default model not found.")
 
@@ -519,4 +523,12 @@ if __name__ == "__main__":
     print(f"  Device: {DEVICE}")
     print("  Open: http://localhost:5050")
     print("=" * 60 + "\n")
-    app.run(host="0.0.0.0", port=5050, debug=False, threaded=True)
+
+    port = int(os.environ.get("PORT", 5050))
+
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False,
+        threaded=True
+    )

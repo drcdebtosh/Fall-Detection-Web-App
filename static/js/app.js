@@ -369,7 +369,7 @@ function renderModelPickers(data) {
 
 function getSelectedModel(containerId) {
     const sel = document.querySelector(`#${containerId} .mp-card.selected`);
-    return sel ? sel.dataset.model : 'yolo11n-pose.pt';
+    return sel ? sel.dataset.model : 'models/yolo11n-pose.pt';
 }
 
 // ═══════════════════════════════════════════════════════════════════
